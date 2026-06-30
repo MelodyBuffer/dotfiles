@@ -1,0 +1,3 @@
+# Local rc files for third-party tools
+.bashrc.local
+.zshrc.local

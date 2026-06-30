@@ -34,3 +34,9 @@ fi
 
 # Completion
 autoload -Uz compinit && compinit
+
+# Local overrides (not tracked in git)
+# Third-party tools may write to this file
+if [ -f "$HOME/.zshrc.local" ]; then
+    . "$HOME/.zshrc.local"
+fi

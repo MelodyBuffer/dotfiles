@@ -24,3 +24,9 @@ unset rc
 if [ -f "$HOME/.cargo/env" ]; then
     . "$HOME/.cargo/env"
 fi
+
+# Local overrides (not tracked in git)
+# Third-party tools may write to this file
+if [ -f "$HOME/.bashrc.local" ]; then
+    . "$HOME/.bashrc.local"
+fi
