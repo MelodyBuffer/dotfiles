@@ -1,0 +1,26 @@
+# ~/.bashrc
+# Managed by dotfiles repo: ~/dev/dotfiles
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Source shared shell configs
+for rc in "$HOME/dev/dotfiles/shellrc.d"/*.sh; do
+    if [ -f "$rc" ]; then
+        . "$rc"
+    fi
+done
+unset rc
+
+# Cargo (Rust)
+if [ -f "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi
