@@ -35,6 +35,24 @@ fi
 # Completion
 autoload -Uz compinit && compinit
 
+export PATH="/opt/homebrew/bin:$PATH"
+alias cls="clear"
+
+
+export GOPATH="$HOME/go"; export GOROOT="$HOME/.go"; export PATH="$GOPATH/bin:$PATH"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
+. "$HOME/.local/bin/env"
+
+# fnm
+FNM_PATH="/opt/homebrew/opt/fnm/bin"
+if [ -d "$FNM_PATH" ]; then
+  eval "$(fnm env --shell zsh)"
+fi
+
+
 # Local overrides (not tracked in git)
 # Third-party tools may write to this file
 if [ -f "$HOME/.zshrc.local" ]; then
